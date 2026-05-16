@@ -1,3 +1,19 @@
+from flask import Flask
+from threading import Thread
+
+app_flask = Flask('')
+
+@app_flask.route('/')
+def home():
+    return "Bot is alive!"
+
+def run():
+    app_flask.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -64,4 +80,5 @@ app.add_handler(CommandHandler("earn", earn))
 app.add_handler(CallbackQueryHandler(button_handler))
 
 print("Bot is running...")
+keep_alive()
 app.run_polling()
