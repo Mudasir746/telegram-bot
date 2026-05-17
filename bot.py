@@ -26,9 +26,8 @@ import os
 
 TOKEN = os.getenv("BOT_TOKEN")
 
-# 💰 LINKS (EDIT ONLY HERE)
-CPA_LINK = "https://your-cpa-link.com"
-ADSTERRA_LINK = "https://your-adsterra-link.com"
+CPA_LINK = os.getenv("CPA_LINK")
+ADSTERRA_LINK = os.getenv("ADSTERRA_LINK")
 
 # ---------------- START COMMAND ----------------
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
