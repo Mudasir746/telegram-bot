@@ -56,12 +56,15 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text("🤖 AI feature coming soon...")
 
     elif data == "earn":
-        await query.message.reply_text(
-            "💰 Earn Online Section\n\n"
-            f"🔥 CPA Offer:\n👉 {CPA_LINK}\n\n"
-            f"⚡ Adsterra Offer:\n👉 {ADSTERRA_LINK}\n\n"
-            "🚀 More offers coming soon..."
-        )
+
+    cpa_text = "\n".join(CPA_LINKS)
+    adsterra_text = "\n".join(ADSTERRA_LINKS)
+
+    await query.message.reply_text(
+        f"💰 Earn Online Section\n\n"
+        f"🔥 CPA Offers:\n{cpa_text}\n\n"
+        f"⚡ Adsterra Offers:\n{adsterra_text}"
+    )
 
 # ---------------- OPTIONAL COMMAND ----------------
 async def earn(update: Update, context: ContextTypes.DEFAULT_TYPE):
