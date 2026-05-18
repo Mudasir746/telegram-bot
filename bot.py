@@ -26,8 +26,25 @@ import os
 
 TOKEN = os.getenv("BOT_TOKEN")
 
-CPA_LINK = os.getenv("CPA_LINK","").splitlines()
-ADSTERRA_LINK = os.getenv("ADSTERRA_LINK","").splitlines()
+CPA_LINKS = [
+    os.getenv("CPA_LINK_1"),
+    os.getenv("CPA_LINK_2"),
+    os.getenv("CPA_LINK_3"),
+    os.getenv("CPA_LINK_4"),
+    os.getenv("CPA_LINK_5"),
+]
+
+CPA_LINKS = [link for link in CPA_LINKS if link]
+
+ADSTERRA_LINKS = [
+    os.getenv("ADSTERRA_LINK_1"),
+    os.getenv("ADSTERRA_LINK_2"),
+    os.getenv("ADSTERRA_LINK_3"),
+    os.getenv("ADSTERRA_LINK_4"),
+    os.getenv("ADSTERRA_LINK_5"),
+]
+
+ADSTERRA_LINKS = [link for link in ADSTERRA_LINKS if link]
 
 # ---------------- START COMMAND ----------------
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
