@@ -11,8 +11,9 @@ def run():
     app_flask.run(host='0.0.0.0', port=8080)
 
 def keep_alive():
-    t = Thread(target=run)
-    t.start()
+    server = Thread(target=run)
+    server.daemon = True
+    server.start()
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -100,5 +101,4 @@ app.add_handler(CallbackQueryHandler(button_handler))
 
 print("Bot is running...")
 keep_alive()
-print("KEEP ALIVE STARTED")
 app.run_polling()
